@@ -60,8 +60,8 @@ Remove User
 #### Dado que existe um usuário no sistema
     ${user}    Factory Remove User
 
-    # Excluindo massa antes de inserir novamente
-    Remove User    ${user}
+    # # Excluindo massa antes de inserir novamente
+    # Remove User    ${user}
 
 #### E tenho um token desse usuário
     # Garantir que o usuário esteja cadastrado
@@ -74,11 +74,11 @@ Remove User
 
 #### Então deve retornar o status code 204 (no content)
     # Todas as validações...
-    Status Should Be    400    ${response}
+    Status Should Be    204    ${response}
 
 #### E ao fazer uma requisição GET, deve retornar o status code 404 (not found)
     ${response}         GET User    ${token}
-    Status Should Be    200         ${response}
+    Status Should Be    404         ${response}
 
 
 Update User

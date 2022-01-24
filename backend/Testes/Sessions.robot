@@ -40,11 +40,11 @@ User Session       #Login na API
     # Validar os caracteres do token
     ${size}    Get Length    ${response.json()}[token]
     
-    Log To Console    \nToken: ${response.json()}[token]
-    Log To Console    Expira em: ${response.json()}[expires_in]
-    Log To Console    Tamanho: ${size}
+    # Log To Console    \nToken: ${response.json()}[token]
+    # Log To Console    Expira em: ${response.json()}[expires_in]
+    # Log To Console    Tamanho: ${size}
     
-    Should Be Equal As Integers    ${size}    139
+    Should Be True    ${size} > 130
     
     #### E esse token deve expirar em 10 dias
     Should Be Equal    10d    ${response.json()}[expires_in]
