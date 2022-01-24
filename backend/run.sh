@@ -1,1 +1,1 @@
-robot -d ./Logs Testes/
+robot -d ./logs Testes/
