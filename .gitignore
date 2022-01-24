@@ -2,3 +2,7 @@ Logs
 docs
 __pycache__
 run_total.sh
+
+playwright-log.txt
+
+.gitignore
