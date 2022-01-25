@@ -15,7 +15,7 @@ Connect To Postgres
 #... 5 servidor    = fanny.db.elephantsql.com
 #... 6 porta padrao = 5432
 
-### BANCO DE DADOS Nº 01
+### BANCO DE DADOS CONFIG
     Connect To Database    psycopg2
     ...                    siewzdxw
     ...                    siewzdxw
@@ -44,11 +44,19 @@ Insert User Database
 # Semeadura de massa de teste
 Users Seed
 
-    ${user}                 Factory User    login
-    Insert User Database    ${user}
+    ### código refatorado para inserção dos seeds no BD
+    ${users}    Users To Insert DB
 
-    ${user2}                Factory User    be_geek
-    Insert User Database    ${user2}
+    FOR    ${user}    IN     @{users}
+        Insert User Database    ${user}
+    END
 
-    ${user3}                Factory User    attempt_be_geek
-    Insert User Database    ${user3}
+    ### código antigo
+    # ${user}                 Factory User    login
+    # Insert User Database    ${user}
+
+    # ${user2}                Factory User    be_geek
+    # Insert User Database    ${user2}
+
+    # ${user3}                Factory User    attempt_be_geek
+    # Insert User Database    ${user3}
