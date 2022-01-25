@@ -1,7 +1,7 @@
 # clear
 robot -l NONE -o NONE -r NONE Tasks/Delorean.robot
 
-robot -x xunit.xml -d ./logs Testes/SearchForGeeks.robot
+robot -x xunit.xml -d ./logs Testes/
 
 # rm -rf ./logs/browser
 # mkdir ./logs/browser
