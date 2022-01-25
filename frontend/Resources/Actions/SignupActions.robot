@@ -27,7 +27,7 @@ User Should Be Registered
 
     ${expected_message}    Set Variable    css=p >> text=Agora você faz parte da Getgeeks. Tenha uma ótima experiência.
 
-    Wait For Elements State    ${expected_message}    visible    5
+    Wait For Elements State    ${expected_message}    visible    20
 
 
 
