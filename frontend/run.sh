@@ -1,4 +1,4 @@
-clear
+# clear
 robot -l NONE -o NONE -r NONE Tasks/Delorean.robot
 
 robot -x xunit.xml -d ./logs Testes/SearchForGeeks.robot
