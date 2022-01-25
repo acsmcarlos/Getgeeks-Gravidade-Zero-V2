@@ -8,6 +8,27 @@ Go To Geek Form
 
     Wait For Elements State    css=.be-geek-form    visible    30
 
+Go To Geeks
+
+    Click     css=a[href="/geeks"] >> text=Geeks
+    
+    Wait For Elements State    css=.title strong >> text=Estes são os Geeks disponíveis.    visible    30
+
+Fill Search Form
+    [Arguments]    ${target_option}    ${target_text}
+
+    IF    '${target_option}'
+        Select Options By    id=printer_repair    value    ${target_option}
+    END
+
+    IF    '${target_text}'
+        Fill Text    id=desc    ${target_text}
+    END
+
+Submit Search Form
+    Click    css=button[type="submit"] >> text=Buscar
+    
+
 Fill Geek Form
     [Arguments]    ${geek_profile}
 
@@ -16,11 +37,11 @@ Fill Geek Form
     Fill Text    id=whatsapp    ${geek_profile}[whats]
     Fill Text    id=desc        ${geek_profile}[desc]
 
-    IF     '${geek_profile}[printer_repair]'
+    IF    '${geek_profile}[printer_repair]'
         Select Options By    id=printer_repair    text    ${geek_profile}[printer_repair]
     END
 
-    IF     '${geek_profile}[work]'
+    IF    '${geek_profile}[work]'
         Select Options By    id=work    text    ${geek_profile}[work]
     END
 
@@ -38,3 +59,4 @@ Geek Form Should Be Success
 # Resetar o formulário com javascript
 Reset Geek Form
     Execute Javascript    document.getElementsByClassName("be-geek-form")[0].reset();
+

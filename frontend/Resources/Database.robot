@@ -5,7 +5,6 @@ Library    DatabaseLibrary
 Library    Factories/Users.py
 
 
-
 *** Keywords ***
 Connect To Postgres
 #... 1 driver    = psicopg2
@@ -26,7 +25,7 @@ Connect To Postgres
 # Deletar registros no banco
 Reset Env
     Execute SQL String    DELETE FROM geeks;
-    Execute SQL String    DELETE FROM users WHERE email IN ('tony@stark.com', 'acsmcarlos@gmail.com', 'kim@gmail.com', 'peter@einerd.com', 'rafael@gmail.com');
+    Execute SQL String    DELETE FROM users;     #WHERE email IN ('tony@stark.com', 'acsmcarlos@gmail.com', 'kim@gmail.com', 'peter@einerd.com', 'rafael@gmail.com');
 
 Insert User Database
     [Arguments]    ${u}
@@ -45,7 +44,7 @@ Insert User Database
 Users Seed
 
     ### código refatorado para inserção dos seeds no BD
-    ${users}    Users To Insert DB
+    @{users}    Users To Insert DB
 
     FOR    ${user}    IN     @{users}
         Insert User Database    ${user}

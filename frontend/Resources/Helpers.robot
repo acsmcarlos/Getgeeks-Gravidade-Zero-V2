@@ -16,3 +16,4 @@ Do Login
     Fill Credentials            ${user}
     Submit Credentials
     User Should Be Logged In    ${user}    # validação do profile
+

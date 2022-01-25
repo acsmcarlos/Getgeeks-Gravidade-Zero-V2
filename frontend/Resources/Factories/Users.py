@@ -9,12 +9,19 @@ def get_hashed_pass(password):
     return hashed
 
 # Método para inserir usuários no banco
+
+
 def users_to_insert_db():
     return [
         factory_user('login'),
         factory_user('be_geek'),
-        factory_user('attempt_be_geek')
+        factory_user('attempt_be_geek'),
+        factory_user('search_alien'),
+        factory_user('search_common'),
+        factory_user('searcher_alien'),
+        factory_user('searcher_common')
     ]
+
 
 def factory_user(target):
     data = {
@@ -57,7 +64,6 @@ def factory_user(target):
                 'cost': '100'
             }
         },
-        # massa de teste que vai atender todos os outros casos de testes infeliz
         'attempt_be_geek': {
             'firstname': 'Dio',
             'lastname': 'Linux',
@@ -70,6 +76,45 @@ def factory_user(target):
                 'work': 'Remoto',
                 'cost': '250'
             }
+        },
+        'searcher_alien': {
+            'firstname': 'Johnny',
+            'lastname': 'Lawrence',
+            'email': 'johnny@cobrakai.com',
+            'password': '123456'
+        },
+        'search_alien': {
+            'firstname': 'Dok',
+            'lastname': 'Ock',
+            'email': 'dok@oscorp.com',
+            'password': '123456',
+            'geek_profile': {
+                'whatsapp': '34984323887',
+                'desc': 'Faço conserto de qualquer impressora. Matricial a fita, Matricial a fita colorida, a laser, a jato de tinta e tambem impressora 3D.',
+                'printer_repair': 'Sim',
+                'work': 'Presencial',
+                'cost': '350'
+            }
+        },
+        'searcher_common': {
+            'firstname': 'Daniel',
+            'lastname': 'Larousso',
+            'email': 'daniel@miyagido.com',
+            'password': '123456'
+        },
+        'search_common': {
+            'firstname': 'Peter',
+            'lastname': 'Parker',
+            'email': 'parker@oscorp.com',
+            'password': '123456',
+            'geek_profile': {
+                'whatsapp': '34984323863',
+                'desc': 'Posso formatar o seu computador, instalando o windows 10 e 11, e também o Linux Mint ou Ubuntu (recomendado para iniciantes). Além disso, consigo remover qualquer vírus, malware e até mesmo o baidoo. Tudo de forma profissional.',
+                'printer_repair': 'Não',
+                'work': 'Remoto',
+                'cost': '150'
+            }
         }
     }
+
     return data[target]
