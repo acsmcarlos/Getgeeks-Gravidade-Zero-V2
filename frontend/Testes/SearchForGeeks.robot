@@ -23,8 +23,8 @@ Search For Alien Geek
     Fill Search Form    Sim    ${EMPTY}    #Impressora a Jato
     Submit Search Form
 
-    
-    Sleep    4
+
+    # Sleep    4
 
     ### validações
     # Wait For Elements State    css=.message span >> text=1                      visible    5

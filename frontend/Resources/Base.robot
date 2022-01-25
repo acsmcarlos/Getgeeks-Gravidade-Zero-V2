@@ -22,7 +22,7 @@ ${URL_BASE}    https://getgeeks-web-antonio.herokuapp.com
 
 *** Keywords ***
 Start Session
-    New Browser    chromium       headless=False    slowMo=00:00:00
+    New Browser    chromium       headless=True    slowMo=00:00:00
     New Page       ${URL_BASE}
 
 
