@@ -4,7 +4,7 @@ Documentation    Suit de testes de login de usuário no getgeeks
 Resource    ../Resources/Base.robot
 
 Test Setup       Start Session
-Test Teardown    Finish Session
+Test Teardown    After Test
 
 *** Test Cases ***
 User Login

@@ -2,9 +2,10 @@
 Documentation    Base de testes | Arquivo base do projeto
 
 Library    Browser
-Library    Collections
+Library     Collections
 
-Library    Factories/Users.py
+Library     Factories/Users.py
+Library     Utils.py
 
 Resource    Actions/SharedActions.robot
 Resource    Actions/LoginActions.robot
@@ -25,5 +26,6 @@ Start Session
     New Page       ${URL_BASE}
 
 
-Finish Session
-    Take Screenshot    fullPage=True    filename=evidência_n_{index}
+After Test
+    ${shot_name}        Screenshot Name
+    Take Screenshot    fullPage=True    filename=${shot_name}
