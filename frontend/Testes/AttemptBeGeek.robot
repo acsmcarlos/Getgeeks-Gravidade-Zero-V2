@@ -43,7 +43,7 @@ Attempt Be a Geek
     Submit Geek Form
     Alert Span Should Be    ${output_message}
 
-    Take Screenshot    fullPage=True    filename=AttemptBeGeek_{index}
+    After Test
 
 
 Start Session For Attempt For Be Geek
