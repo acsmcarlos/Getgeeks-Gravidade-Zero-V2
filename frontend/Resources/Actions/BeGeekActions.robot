@@ -27,6 +27,7 @@ Fill Search Form
 
 Submit Search Form
     Click    css=button[type="submit"] >> text=Buscar
+    # Sleep     2
     
 
 Fill Geek Form
@@ -60,3 +61,24 @@ Geek Form Should Be Success
 Reset Geek Form
     Execute Javascript    document.getElementsByClassName("be-geek-form")[0].reset();
 
+Geek Should Be Found
+    [Arguments]    ${geek}
+
+    ### validações
+    ### concatenação do nome com sobrenome vindo do Users.py
+    ${fullname}    Set Variable    ${geek}[firstname] ${geek}[lastname]
+
+    ${target_geek}        Get Element    xpath=//strong[contains(text(), "${fullname}")]/../../..
+    Set Suite Variable    ${target_geek}
+
+    Get Text     ${target_geek}    contains     Atendimento ${geek}[geek_profile][work]
+    Get Text     ${target_geek}    contains     ${geek}[geek_profile][desc]
+    Get Text     ${target_geek}    contains     ${geek}[geek_profile][cost]
+    Get Text     ${target_geek}    contains     Entrar em contato
+
+
+Alien Icon Should Be Visible
+    Get Text     ${target_geek}    contains     👽
+
+Geek Not Found
+    Wait For Elements State     css=.search-not-found p >> text=Não encontramos Geeks com o(s) termo(s) informado na busca!    visible     15

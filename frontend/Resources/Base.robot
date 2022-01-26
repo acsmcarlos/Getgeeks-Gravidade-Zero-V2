@@ -3,6 +3,7 @@ Documentation    Base de testes | Arquivo base do projeto
 
 Library    Browser
 Library    Collections
+Library    Utils.py
 
 Library    Factories/Users.py
 
@@ -26,5 +27,8 @@ Start Session
     New Page       ${URL_BASE}
 
 
-Finish Session
-    Take Screenshot    fullPage=True    filename=evidência_n_{index}
+After Test
+    
+    ${shot_name}    Screenshot Name
+    
+    Take Screenshot    fullPage=True    filename=${shot_name}

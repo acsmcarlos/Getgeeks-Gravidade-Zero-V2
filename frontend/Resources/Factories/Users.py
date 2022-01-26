@@ -92,7 +92,7 @@ def factory_user(target):
                 'whatsapp': '34984323887',
                 'desc': 'Faço conserto de qualquer impressora. Matricial a fita, Matricial a fita colorida, a laser, a jato de tinta e tambem impressora 3D.',
                 'printer_repair': 'Sim',
-                'work': 'Presencial',
+                'work': 'Presencial'.lower(),
                 'cost': '350'
             }
         },
@@ -109,10 +109,10 @@ def factory_user(target):
             'password': '123456',
             'geek_profile': {
                 'whatsapp': '34984323863',
-                'desc': 'Posso formatar o seu computador, instalando o windows 10 e 11, e também o Linux Mint ou Ubuntu (recomendado para iniciantes). Além disso, consigo remover qualquer vírus, malware e até mesmo o baidoo. Tudo de forma profissional.',
+                'desc': 'Faço instalação de distribuição Linux no seu computador PC X86 ou X64 com processadores Intel ou AMD. Pode ser Linux Debian, Ubuntu, Mint, Fedora, etc...',
                 'printer_repair': 'Não',
-                'work': 'Remoto',
-                'cost': '150'
+                'work': 'Remoto'.lower(),
+                'cost': '200'
             }
         }
     }

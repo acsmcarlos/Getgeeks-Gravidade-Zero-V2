@@ -4,7 +4,7 @@ Documentation    Suite de testes de busca de geeks
 Resource    ../Resources/Base.robot
 
 Test Setup       Start Session
-Test Teardown    Finish Session
+Test Teardown    After Test
 
 
 *** Test Cases ***
@@ -20,31 +20,39 @@ Search For Alien Geek
     Do Login       ${searcher}
 
     Go To Geeks
-    Fill Search Form    Sim    ${EMPTY}    #Impressora a Jato
+    Fill Search Form      Sim    Matricial a fita colorida
     Submit Search Form
 
-
-    # Sleep    4
-
-    ### validações
-    # Wait For Elements State    css=.message span >> text=1                      visible    5
-    # Wait For Elements State    css=.geek strong >> text=Dok Ock                 visible    5
-    # Wait For Elements State    css=.geek span >> text=Atendimento presencial    visible    5
-    # Wait For Elements State    css=footer strong >> text=350.00                 visible    5
+    Geek Should Be Found            ${alien}
+    Alien Icon Should Be Visible
 
 
 Search For Common Geek
 
-   ## Inserindo Peter Parker (Common)
+    ## Inserindo Dok Ock (Alien)
     ${common}    Factory User    search_common
 
     Create Geek Profile Service    ${common}
 
-## Pessoa que vai buscar pelo prestador de serviço
+    ## Pessoa que vai buscar pelo prestador de serviço
     ${searcher}    Factory User    searcher_common
     Do Login       ${searcher}
 
     Go To Geeks
-    Fill Search Form    ${EMPTY}    Removo o Baidu
+    Fill Search Form      Não    PC X86 ou X64
     Submit Search Form
-    # Sleep    4
+
+    Geek Should Be Found            ${common}
+
+
+Search Not Found
+
+    ## Pessoa que vai buscar pelo prestador de serviço
+    ${searcher}    Factory User    searcher_common
+    Do Login       ${searcher}
+
+    Go To Geeks
+    Fill Search Form      Não    Conserto Game Atari da Polivox
+    Submit Search Form
+
+    Geek Not Found
